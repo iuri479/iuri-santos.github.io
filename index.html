@@ -3,69 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ME315 - Iuri Santos</title>
+    <title>ME315</title>
     <style>
-        body { 
-            font-family: system-ui, sans-serif; 
-            max-width: 600px; 
-            margin: 60px auto; 
-            padding: 0 20px; 
-            line-height: 1.5;
-            color: #333;
-        }
-        h1 { 
-            font-weight: 400; 
-            margin-bottom: 10px; 
-            font-size: 1.8rem;
-        }
-        .subtitle { 
-            color: #666; 
-            margin-bottom: 30px; 
-        }
-        ul { 
-            list-style: none; 
-            padding: 0; 
-        }
-        li { 
-            margin-bottom: 8px; 
-            padding: 12px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        a { 
-            text-decoration: none; 
-            color: #0066cc; 
-        }
-        a:hover { 
-            text-decoration: underline; 
-        }
-        .file-type {
-            color: #888;
-            font-size: 0.9em;
-            margin-left: 8px;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin: 40px auto; max-width: 500px; padding: 0 20px; }
+        h1 { font-weight: 500; font-size: 1.5rem; margin-bottom: 30px; }
+        .challenge { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; }
+        .links a { margin-left: 15px; text-decoration: none; color: #007AFF; }
+        .links a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
-    <h1>Desafios ME315</h1>
-    <p class="subtitle">Iuri Santos • Banco de Dados • UNICAMP</p>
+    <h1>ME315 • Iuri Santos</h1>
     
-    <ul>
-        <li><a href="ManipulacaoBancoDados/Desafio - 01.qmd">Desafio 01</a><span class="file-type">qmd</span> | 
-            <a href="ManipulacaoBancoDados/Desafio - 01.html">html</a></li>
-        <li><a href="ManipulacaoBancoDados/Desafio - 02.qmd">Desafio 02</a><span class="file-type">qmd</span> | 
-            <a href="ManipulacaoBancoDados/Desafio - 02.html">html</a></li>
-        <li><a href="ManipulacaoBancoDados/Desafio - 03.qmd">Desafio 03</a><span class="file-type">qmd</span> | 
-            <a href="ManipulacaoBancoDados/Desafio - 03.pdf">pdf</a></li>
-        <li><a href="ManipulacaoBancoDados/Desafio - 04.qmd">Desafio 04</a><span class="file-type">qmd</span> | 
-            <a href="ManipulacaoBancoDados/Desafio - 04.html">html</a></li>
-        <li><a href="ManipulacaoBancoDados/Desafio - 05.qmd">Desafio 05</a><span class="file-type">qmd</span> | 
-            <a href="ManipulacaoBancoDados/Desafio - 05.html">html</a></li>
-        <li><a href="ManipulacaoBancoDados/Desafio - 06.qmd">Desafio 06</a><span class="file-type">qmd</span> | 
-            <a href="ManipulacaoBancoDados/Desafio - 06.html">html</a></li>
-        <li><a href="ManipulacaoBancoDados/Desafio - 07.qmd">Desafio 07</a><span class="file-type">qmd</span> | 
-            <a href="ManipulacaoBancoDados/Desafio - 07.html">html</a></li>
-        <li><a href="ManipulacaoBancoDados/Desafio - 08.qmd">Desafio 08</a><span class="file-type">qmd</span> | 
-            <a href="ManipulacaoBancoDados/Desafio - 08.html">html</a></li>
-    </ul>
+    <div class="challenge">
+        <span>Desafio 01</span>
+        <div class="links">
+            <a href="ManipulacaoBancoDados/Desafio - 01.qmd">qmd</a>
+            <a href="ManipulacaoBancoDados/Desafio - 01.html">html</a>
+        </div>
+    </div>
+    
+    <div class="challenge">
+        <span>Desafio 02</span>
+        <div class="links">
+            <a href="ManipulacaoBancoDados/Desafio - 02.qmd">qmd</a>
+            <a href="ManipulacaoBancoDados/Desafio - 02.html">html</a>
+        </div>
+    </div>
+    
+    <div class="challenge">
+        <span>Desafio 03</span>
+        <div class="links">
+            <a href="ManipulacaoBancoDados/Desafio - 03.qmd">qmd</a>
+            <a href="ManipulacaoBancoDados/Desafio - 03.pdf">pdf</a>
+        </div>
+    </div>
+    
+    <!-- Repetir para os demais desafios -->
+    <div class="challenge">
+        <span>Desafio 04</span>
+        <div class="links">
+            <a href="ManipulacaoBancoDados/Desafio - 04.qmd">qmd</a>
+            <a href="ManipulacaoBancoDados/Desafio - 04.html">html</a>
+        </div>
+    </div>
+    
+    <div class="challenge">
+        <span>Desafio 05</span>
+        <div class="links">
+            <a href="ManipulacaoBancoDados/Desafio - 05.qmd">qmd</a>
+            <a href="ManipulacaoBancoDados/Desafio - 05.html">html</a>
+        </div>
+    </div>
+    
+    <div class="challenge">
+        <span>Desafio 06</span>
+        <div class="links">
+            <a href="ManipulacaoBancoDados/Desafio - 06.qmd">qmd</a>
+            <a href="ManipulacaoBancoDados/Desafio - 06.html">html</a>
+        </div>
+    </div>
+    
+    <div class="challenge">
+        <span>Desafio 07</span>
+        <div class="links">
+            <a href="ManipulacaoBancoDados/Desafio - 07.qmd">qmd</a>
+            <a href="ManipulacaoBancoDados/Desafio - 07.html">html</a>
+        </div>
+    </div>
+    
+    <div class="challenge">
+        <span>Desafio 08</span>
+        <div class="links">
+            <a href="ManipulacaoBancoDados/Desafio - 08.qmd">qmd</a>
+            <a href="ManipulacaoBancoDados/Desafio - 08.html">html</a>
+        </div>
+    </div>
 </body>
 </html>
