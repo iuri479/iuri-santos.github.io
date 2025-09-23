@@ -12,27 +12,32 @@
         }
         
         body {
-            font-family: 'Georgia', serif;
-            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #333;
-            line-height: 1.6;
+            min-height: 100vh;
             padding: 30px;
-            max-width: 1100px;
+        }
+        
+        .container {
+            max-width: 1000px;
             margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
         }
         
         .header {
-            background-color: #2c3e50;
+            background: #2c3e50;
             color: white;
             padding: 30px;
-            border-radius: 8px 8px 0 0;
-            margin-bottom: 0;
+            text-align: center;
         }
         
         h1 {
             font-size: 2.2rem;
             margin-bottom: 10px;
-            font-weight: 600;
         }
         
         .subtitle {
@@ -41,47 +46,73 @@
         }
         
         .student-info {
-            background-color: #34495e;
+            background: #34495e;
+            padding: 15px;
+            text-align: center;
             color: white;
-            padding: 15px 30px;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
         
-        .challenges-table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 0 0 8px 8px;
-            overflow: hidden;
+        .tabs {
+            display: flex;
+            background: #ecf0f1;
+            border-bottom: 1px solid #bdc3c7;
         }
         
-        .challenges-table th {
-            background-color: #ecf0f1;
+        .tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #7f8c8d;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab.active {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            background: white;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 30px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .challenge-group {
+            margin-bottom: 30px;
+        }
+        
+        .group-title {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .challenge-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 15px;
-            text-align: left;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            transition: background 0.2s ease;
+        }
+        
+        .challenge-item:hover {
+            background: #e9ecef;
+        }
+        
+        .challenge-name {
             font-weight: 600;
             color: #2c3e50;
-            border-bottom: 2px solid #bdc3c7;
-        }
-        
-        .challenges-table td {
-            padding: 15px;
-            border-bottom: 1px solid #ecf0f1;
-        }
-        
-        .challenges-table tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .challenges-table tr:hover {
-            background-color: #f9f9f9;
-        }
-        
-        .challenge-number {
-            font-weight: 600;
-            color: #2c3e50;
-            width: 120px;
         }
         
         .file-links {
@@ -93,16 +124,16 @@
             display: inline-flex;
             align-items: center;
             padding: 6px 12px;
-            background-color: #3498db;
+            background: #3498db;
             color: white;
             border-radius: 4px;
             text-decoration: none;
             font-size: 0.85rem;
-            transition: background-color 0.2s ease;
+            transition: background 0.2s ease;
         }
         
         .file-link:hover {
-            background-color: #2980b9;
+            background: #2980b9;
         }
         
         .file-icon {
@@ -112,7 +143,8 @@
         
         .footer {
             text-align: center;
-            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
             color: #7f8c8d;
             font-size: 0.9rem;
         }
@@ -122,153 +154,78 @@
                 padding: 15px;
             }
             
-            .file-links {
+            .tabs {
                 flex-direction: column;
-                gap: 5px;
             }
             
-            .challenges-table {
-                display: block;
-                overflow-x: auto;
+            .challenge-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .file-links {
+                width: 100%;
+                justify-content: flex-end;
             }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Desafios ME315 - Banco de Dados</h1>
-        <p class="subtitle">Disciplina de Banco de Dados - UNICAMP</p>
-    </div>
-    
-    <div class="student-info">
-        <p><strong>Aluno:</strong> Iuri Santos | <strong>Disciplina:</strong> ME315</p>
-    </div>
-    
-    <table class="challenges-table">
-        <thead>
-            <tr>
-                <th>Desafio</th>
-                <th>Arquivos</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="challenge-number">Desafio 01</td>
-                <td>
+    <div class="container">
+        <div class="header">
+            <h1>Desafios ME315</h1>
+            <p class="subtitle">Banco de Dados - UNICAMP</p>
+        </div>
+        
+        <div class="student-info">
+            <p><strong>Aluno:</strong> Iuri Santos | <strong>Disciplina:</strong> ME315 - Banco de Dados</p>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="challenges">Desafios</div>
+            <div class="tab" data-tab="info">Informações</div>
+        </div>
+        
+        <div class="tab-content active" id="challenges">
+            <div class="challenge-group">
+                <h3 class="group-title">Manipulação de Banco de Dados</h3>
+                
+                <div class="challenge-item">
+                    <span class="challenge-name">Desafio 01</span>
                     <div class="file-links">
                         <a href="ManipulacaoBancoDados/Desafio - 01.qmd" class="file-link">
-                            <span class="file-icon">QMD</span> Arquivo fonte
+                            <span class="file-icon">QMD</span> Fonte
                         </a>
                         <a href="ManipulacaoBancoDados/Desafio - 01.html" class="file-link">
-                            <span class="file-icon">HTML</span> Versão web
+                            <span class="file-icon">HTML</span> Web
                         </a>
                     </div>
-                </td>
-            </tr>
-            
-            <tr>
-                <td class="challenge-number">Desafio 02</td>
-                <td>
+                </div>
+                
+                <div class="challenge-item">
+                    <span class="challenge-name">Desafio 02</span>
                     <div class="file-links">
                         <a href="ManipulacaoBancoDados/Desafio - 02.qmd" class="file-link">
-                            <span class="file-icon">QMD</span> Arquivo fonte
+                            <span class="file-icon">QMD</span> Fonte
                         </a>
                         <a href="ManipulacaoBancoDados/Desafio - 02.html" class="file-link">
-                            <span class="file-icon">HTML</span> Versão web
+                            <span class="file-icon">HTML</span> Web
                         </a>
                     </div>
-                </td>
-            </tr>
-            
-            <tr>
-                <td class="challenge-number">Desafio 03</td>
-                <td>
+                </div>
+                
+                <div class="challenge-item">
+                    <span class="challenge-name">Desafio 03</span>
                     <div class="file-links">
                         <a href="ManipulacaoBancoDados/Desafio - 03.qmd" class="file-link">
-                            <span class="file-icon">QMD</span> Arquivo fonte
+                            <span class="file-icon">QMD</span> Fonte
                         </a>
                         <a href="ManipulacaoBancoDados/Desafio - 03.pdf" class="file-link">
                             <span class="file-icon">PDF</span> Documento
                         </a>
                     </div>
-                </td>
-            </tr>
-            
-            <!-- Repetir para os demais desafios -->
-            <tr>
-                <td class="challenge-number">Desafio 04</td>
-                <td>
-                    <div class="file-links">
-                        <a href="ManipulacaoBancoDados/Desafio - 04.qmd" class="file-link">
-                            <span class="file-icon">QMD</span> Arquivo fonte
-                        </a>
-                        <a href="ManipulacaoBancoDados/Desafio - 04.html" class="file-link">
-                            <span class="file-icon">HTML</span> Versão web
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            
-            <tr>
-                <td class="challenge-number">Desafio 05</td>
-                <td>
-                    <div class="file-links">
-                        <a href="ManipulacaoBancoDados/Desafio - 05.qmd" class="file-link">
-                            <span class="file-icon">QMD</span> Arquivo fonte
-                        </a>
-                        <a href="ManipulacaoBancoDados/Desafio - 05.html" class="file-link">
-                            <span class="file-icon">HTML</span> Versão web
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            
-            <tr>
-                <td class="challenge-number">Desafio 06</td>
-                <td>
-                    <div class="file-links">
-                        <a href="ManipulacaoBancoDados/Desafio - 06.qmd" class="file-link">
-                            <span class="file-icon">QMD</span> Arquivo fonte
-                        </a>
-                        <a href="ManipulacaoBancoDados/Desafio - 06.html" class="file-link">
-                            <span class="file-icon">HTML</span> Versão web
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            
-            <tr>
-                <td class="challenge-number">Desafio 07</td>
-                <td>
-                    <div class="file-links">
-                        <a href="ManipulacaoBancoDados/Desafio - 07.qmd" class="file-link">
-                            <span class="file-icon">QMD</span> Arquivo fonte
-                        </a>
-                        <a href="ManipulacaoBancoDados/Desafio - 07.html" class="file-link">
-                            <span class="file-icon">HTML</span> Versão web
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            
-            <tr>
-                <td class="challenge-number">Desafio 08</td>
-                <td>
-                    <div class="file-links">
-                        <a href="ManipulacaoBancoDados/Desafio - 08.qmd" class="file-link">
-                            <span class="file-icon">QMD</span> Arquivo fonte
-                        </a>
-                        <a href="ManipulacaoBancoDados/Desafio - 08.html" class="file-link">
-                            <span class="file-icon">HTML</span> Versão web
-                        </a>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <div class="footer">
-        <p>ME315 - Banco de Dados | IMECC - UNICAMP | 2023</p>
-    </div>
-</body>
-</html>
+                </div>
+                
+                <!-- Repetir para os demais desafios -->
+               
