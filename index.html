@@ -12,161 +12,134 @@
         }
         
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             color: #333;
             min-height: 100vh;
             padding: 30px;
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
         }
         
         .header {
-            background: #2c3e50;
-            color: white;
-            padding: 30px;
             text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
         }
         
         h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin-bottom: 10px;
+            font-weight: 700;
         }
         
         .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 20px;
         }
         
         .student-info {
-            background: #34495e;
-            padding: 15px;
-            text-align: center;
-            color: white;
-            font-size: 0.95rem;
-        }
-        
-        .tabs {
-            display: flex;
-            background: #ecf0f1;
-            border-bottom: 1px solid #bdc3c7;
-        }
-        
-        .tab {
-            padding: 15px 25px;
-            cursor: pointer;
-            font-weight: 600;
-            color: #7f8c8d;
-            transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
-        }
-        
-        .tab.active {
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
             background: white;
-        }
-        
-        .tab-content {
-            display: none;
-            padding: 30px;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .challenge-group {
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: inline-block;
             margin-bottom: 30px;
         }
         
-        .group-title {
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            color: #2c3e50;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #ecf0f1;
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
         }
         
-        .challenge-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            margin-bottom: 10px;
-            background: #f8f9fa;
-            border-radius: 5px;
-            transition: background 0.2s ease;
+        .challenge-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        .challenge-item:hover {
-            background: #e9ecef;
+        .challenge-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
-        .challenge-name {
+        .card-header {
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+        
+        .challenge-01 .card-header { background: linear-gradient(135deg, #3498db, #2980b9); }
+        .challenge-02 .card-header { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+        .challenge-03 .card-header { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .challenge-04 .card-header { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .challenge-05 .card-header { background: linear-gradient(135deg, #f39c12, #d35400); }
+        .challenge-06 .card-header { background: linear-gradient(135deg, #1abc9c, #16a085); }
+        .challenge-07 .card-header { background: linear-gradient(135deg, #34495e, #2c3e50); }
+        .challenge-08 .card-header { background: linear-gradient(135deg, #e67e22, #d35400); }
+        
+        .card-title {
+            font-size: 1.5rem;
             font-weight: 600;
-            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .card-body {
+            padding: 20px;
         }
         
         .file-links {
             display: flex;
+            flex-direction: column;
             gap: 10px;
         }
         
         .file-link {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            padding: 6px 12px;
-            background: #3498db;
-            color: white;
-            border-radius: 4px;
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
             text-decoration: none;
-            font-size: 0.85rem;
-            transition: background 0.2s ease;
+            color: #2c3e50;
+            transition: all 0.2s ease;
+            border-left: 4px solid #3498db;
         }
         
         .file-link:hover {
-            background: #2980b9;
+            background: #3498db;
+            color: white;
+            transform: translateX(5px);
         }
         
         .file-icon {
-            margin-right: 5px;
+            margin-right: 10px;
             font-weight: 600;
+            width: 40px;
+            text-align: center;
         }
         
         .footer {
             text-align: center;
-            padding: 20px;
-            background: #f8f9fa;
+            margin-top: 50px;
             color: #7f8c8d;
             font-size: 0.9rem;
         }
         
         @media (max-width: 768px) {
-            body {
-                padding: 15px;
+            .challenges-grid {
+                grid-template-columns: 1fr;
             }
             
-            .tabs {
-                flex-direction: column;
-            }
-            
-            .challenge-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
-            
-            .file-links {
-                width: 100%;
-                justify-content: flex-end;
+            h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -176,155 +149,145 @@
         <div class="header">
             <h1>Desafios ME315</h1>
             <p class="subtitle">Banco de Dados - UNICAMP</p>
+            <div class="student-info">
+                <p><strong>Aluno:</strong> Iuri Santos | <strong>Disciplina:</strong> ME315</p>
+            </div>
         </div>
         
-        <div class="student-info">
-            <p><strong>Aluno:</strong> Iuri Santos | <strong>Disciplina:</strong> ME315 - Banco de Dados</p>
-        </div>
-        
-        <div class="tabs">
-            <div class="tab active" data-tab="challenges">Desafios</div>
-            <div class="tab" data-tab="info">Informações</div>
-        </div>
-        
-        <div class="tab-content active" id="challenges">
-            <div class="challenge-group">
-                <h3 class="group-title">Manipulação de Banco de Dados</h3>
-                
-                <div class="challenge-item">
-                    <span class="challenge-name">Desafio 01</span>
+        <div class="challenges-grid">
+            <div class="challenge-card challenge-01">
+                <div class="card-header">
+                    <h3 class="card-title">Desafio 01</h3>
+                </div>
+                <div class="card-body">
                     <div class="file-links">
                         <a href="ManipulacaoBancoDados/Desafio - 01.qmd" class="file-link">
-                            <span class="file-icon">QMD</span> Fonte
+                            <span class="file-icon">QMD</span> Arquivo fonte
                         </a>
                         <a href="ManipulacaoBancoDados/Desafio - 01.html" class="file-link">
-                            <span class="file-icon">HTML</span> Web
+                            <span class="file-icon">HTML</span> Versão web
                         </a>
                     </div>
                 </div>
-                
-                <div class="challenge-item">
-                    <span class="challenge-name">Desafio 02</span>
+            </div>
+            
+            <div class="challenge-card challenge-02">
+                <div class="card-header">
+                    <h3 class="card-title">Desafio 02</h3>
+                </div>
+                <div class="card-body">
                     <div class="file-links">
                         <a href="ManipulacaoBancoDados/Desafio - 02.qmd" class="file-link">
-                            <span class="file-icon">QMD</span> Fonte
+                            <span class="file-icon">QMD</span> Arquivo fonte
                         </a>
                         <a href="ManipulacaoBancoDados/Desafio - 02.html" class="file-link">
-                            <span class="file-icon">HTML</span> Web
+                            <span class="file-icon">HTML</span> Versão web
                         </a>
                     </div>
                 </div>
-                
-                <div class="challenge-item">
-                    <span class="challenge-name">Desafio 03</span>
+            </div>
+            
+            <div class="challenge-card challenge-03">
+                <div class="card-header">
+                    <h3 class="card-title">Desafio 03</h3>
+                </div>
+                <div class="card-body">
                     <div class="file-links">
                         <a href="ManipulacaoBancoDados/Desafio - 03.qmd" class="file-link">
-                            <span class="file-icon">QMD</span> Fonte
+                            <span class="file-icon">QMD</span> Arquivo fonte
                         </a>
                         <a href="ManipulacaoBancoDados/Desafio - 03.pdf" class="file-link">
                             <span class="file-icon">PDF</span> Documento
                         </a>
                     </div>
                 </div>
-                
-                <!-- Repetir para os demais desafios -->
-                <div class="challenge-item">
-                    <span class="challenge-name">Desafio 04</span>
+            </div>
+            
+            <!-- Repetir para os demais desafios -->
+            <div class="challenge-card challenge-04">
+                <div class="card-header">
+                    <h3 class="card-title">Desafio 04</h3>
+                </div>
+                <div class="card-body">
                     <div class="file-links">
                         <a href="ManipulacaoBancoDados/Desafio - 04.qmd" class="file-link">
-                            <span class="file-icon">QMD</span> Fonte
+                            <span class="file-icon">QMD</span> Arquivo fonte
                         </a>
                         <a href="ManipulacaoBancoDados/Desafio - 04.html" class="file-link">
-                            <span class="file-icon">HTML</span> Web
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="challenge-item">
-                    <span class="challenge-name">Desafio 05</span>
-                    <div class="file-links">
-                        <a href="ManipulacaoBancoDados/Desafio - 05.qmd" class="file-link">
-                            <span class="file-icon">QMD</span> Fonte
-                        </a>
-                        <a href="ManipulacaoBancoDados/Desafio - 05.html" class="file-link">
-                            <span class="file-icon">HTML</span> Web
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="challenge-item">
-                    <span class="challenge-name">Desafio 06</span>
-                    <div class="file-links">
-                        <a href="ManipulacaoBancoDados/Desafio - 06.qmd" class="file-link">
-                            <span class="file-icon">QMD</span> Fonte
-                        </a>
-                        <a href="ManipulacaoBancoDados/Desafio - 06.html" class="file-link">
-                            <span class="file-icon">HTML</span> Web
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="challenge-item">
-                    <span class="challenge-name">Desafio 07</span>
-                    <div class="file-links">
-                        <a href="ManipulacaoBancoDados/Desafio - 07.qmd" class="file-link">
-                            <span class="file-icon">QMD</span> Fonte
-                        </a>
-                        <a href="ManipulacaoBancoDados/Desafio - 07.html" class="file-link">
-                            <span class="file-icon">HTML</span> Web
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="challenge-item">
-                    <span class="challenge-name">Desafio 08</span>
-                    <div class="file-links">
-                        <a href="ManipulacaoBancoDados/Desafio - 08.qmd" class="file-link">
-                            <span class="file-icon">QMD</span> Fonte
-                        </a>
-                        <a href="ManipulacaoBancoDados/Desafio - 08.html" class="file-link">
-                            <span class="file-icon">HTML</span> Web
+                            <span class="file-icon">HTML</span> Versão web
                         </a>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="tab-content" id="info">
-            <h3 class="group-title">Informações da Disciplina</h3>
-            <div class="challenge-item">
-                <p><strong>Disciplina:</strong> ME315 - Banco de Dados</p>
-                <p><strong>Instituição:</strong> UNICAMP - Universidade Estadual de Campinas</p>
-                <p><strong>Instituto:</strong> IMECC - Instituto de Matemática, Estatística e Computação Científica</p>
-                <p><strong>Aluno:</strong> Iuri Santos</p>
-                <p><strong>Ano:</strong> 2023</p>
+            
+            <div class="challenge-card challenge-05">
+                <div class="card-header">
+                    <h3 class="card-title">Desafio 05</h3>
+                </div>
+                <div class="card-body">
+                    <div class="file-links">
+                        <a href="ManipulacaoBancoDados/Desafio - 05.qmd" class="file-link">
+                            <span class="file-icon">QMD</span> Arquivo fonte
+                        </a>
+                        <a href="ManipulacaoBancoDados/Desafio - 05.html" class="file-link">
+                            <span class="file-icon">HTML</span> Versão web
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="challenge-card challenge-06">
+                <div class="card-header">
+                    <h3 class="card-title">Desafio 06</h3>
+                </div>
+                <div class="card-body">
+                    <div class="file-links">
+                        <a href="ManipulacaoBancoDados/Desafio - 06.qmd" class="file-link">
+                            <span class="file-icon">QMD</span> Arquivo fonte
+                        </a>
+                        <a href="ManipulacaoBancoDados/Desafio - 06.html" class="file-link">
+                            <span class="file-icon">HTML</span> Versão web
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="challenge-card challenge-07">
+                <div class="card-header">
+                    <h3 class="card-title">Desafio 07</h3>
+                </div>
+                <div class="card-body">
+                    <div class="file-links">
+                        <a href="ManipulacaoBancoDados/Desafio - 07.qmd" class="file-link">
+                            <span class="file-icon">QMD</span> Arquivo fonte
+                        </a>
+                        <a href="ManipulacaoBancoDados/Desafio - 07.html" class="file-link">
+                            <span class="file-icon">HTML</span> Versão web
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="challenge-card challenge-08">
+                <div class="card-header">
+                    <h3 class="card-title">Desafio 08</h3>
+                </div>
+                <div class="card-body">
+                    <div class="file-links">
+                        <a href="ManipulacaoBancoDados/Desafio - 08.qmd" class="file-link">
+                            <span class="file-icon">QMD</span> Arquivo fonte
+                        </a>
+                        <a href="ManipulacaoBancoDados/Desafio - 08.html" class="file-link">
+                            <span class="file-icon">HTML</span> Versão web
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         
         <div class="footer">
-            <p>ME315 - Banco de Dados | IMECC - UNICAMP</p>
+            <p>ME315 - Banco de Dados | IMECC - UNICAMP | 2023</p>
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabs = document.querySelectorAll('.tab');
-            
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // Remove active class from all tabs and contents
-                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                    
-                    // Add active class to clicked tab and corresponding content
-                    this.classList.add('active');
-                    document.getElementById(this.getAttribute('data-tab')).classList.add('active');
-                });
-            });
-        });
-    </script>
 </body>
 </html>
-                
-                <!-- Repetir para os demais desafios -->
-               
