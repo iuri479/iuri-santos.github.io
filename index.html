@@ -228,4 +228,103 @@
                 </div>
                 
                 <!-- Repetir para os demais desafios -->
+                <div class="challenge-item">
+                    <span class="challenge-name">Desafio 04</span>
+                    <div class="file-links">
+                        <a href="ManipulacaoBancoDados/Desafio - 04.qmd" class="file-link">
+                            <span class="file-icon">QMD</span> Fonte
+                        </a>
+                        <a href="ManipulacaoBancoDados/Desafio - 04.html" class="file-link">
+                            <span class="file-icon">HTML</span> Web
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="challenge-item">
+                    <span class="challenge-name">Desafio 05</span>
+                    <div class="file-links">
+                        <a href="ManipulacaoBancoDados/Desafio - 05.qmd" class="file-link">
+                            <span class="file-icon">QMD</span> Fonte
+                        </a>
+                        <a href="ManipulacaoBancoDados/Desafio - 05.html" class="file-link">
+                            <span class="file-icon">HTML</span> Web
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="challenge-item">
+                    <span class="challenge-name">Desafio 06</span>
+                    <div class="file-links">
+                        <a href="ManipulacaoBancoDados/Desafio - 06.qmd" class="file-link">
+                            <span class="file-icon">QMD</span> Fonte
+                        </a>
+                        <a href="ManipulacaoBancoDados/Desafio - 06.html" class="file-link">
+                            <span class="file-icon">HTML</span> Web
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="challenge-item">
+                    <span class="challenge-name">Desafio 07</span>
+                    <div class="file-links">
+                        <a href="ManipulacaoBancoDados/Desafio - 07.qmd" class="file-link">
+                            <span class="file-icon">QMD</span> Fonte
+                        </a>
+                        <a href="ManipulacaoBancoDados/Desafio - 07.html" class="file-link">
+                            <span class="file-icon">HTML</span> Web
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="challenge-item">
+                    <span class="challenge-name">Desafio 08</span>
+                    <div class="file-links">
+                        <a href="ManipulacaoBancoDados/Desafio - 08.qmd" class="file-link">
+                            <span class="file-icon">QMD</span> Fonte
+                        </a>
+                        <a href="ManipulacaoBancoDados/Desafio - 08.html" class="file-link">
+                            <span class="file-icon">HTML</span> Web
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="info">
+            <h3 class="group-title">Informações da Disciplina</h3>
+            <div class="challenge-item">
+                <p><strong>Disciplina:</strong> ME315 - Banco de Dados</p>
+                <p><strong>Instituição:</strong> UNICAMP - Universidade Estadual de Campinas</p>
+                <p><strong>Instituto:</strong> IMECC - Instituto de Matemática, Estatística e Computação Científica</p>
+                <p><strong>Aluno:</strong> Iuri Santos</p>
+                <p><strong>Ano:</strong> 2023</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>ME315 - Banco de Dados | IMECC - UNICAMP</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs and contents
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(this.getAttribute('data-tab')).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+                
+                <!-- Repetir para os demais desafios -->
                
