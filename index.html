@@ -12,11 +12,28 @@
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #0a0a0a;
-            color: #e4e4e7;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
             line-height: 1.6;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120,119,198,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,119,198,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(120,219,226,0.3) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
         }
         
         .container {
@@ -28,31 +45,40 @@
         header {
             text-align: center;
             margin-bottom: 3rem;
-            padding: 2rem 0;
-            border-bottom: 1px solid #27272a;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
         
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 300;
             color: #ffffff;
             margin-bottom: 0.5rem;
-            letter-spacing: -0.025em;
+            background: linear-gradient(135deg, #ffffff 0%, #a8edea 50%, #fed6e3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .subtitle {
-            color: #a1a1aa;
+            color: rgba(255, 255, 255, 0.7);
             font-size: 1.1rem;
-            font-weight: 400;
+            font-weight: 300;
         }
         
         .tabs {
             display: flex;
-            gap: 0;
+            gap: 1rem;
             margin-bottom: 2rem;
-            background: #18181b;
-            border-radius: 8px;
-            padding: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 8px;
         }
         
         .tab {
@@ -60,15 +86,17 @@
             padding: 12px 24px;
             text-align: center;
             cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-            font-weight: 500;
-            color: #a1a1aa;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7);
         }
         
         .tab.active {
-            background: #ffffff;
-            color: #0a0a0a;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            color: #ffffff;
+            box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
         }
         
         .tab-content {
@@ -86,15 +114,19 @@
         }
         
         .challenge-item {
-            background: #18181b;
-            border-radius: 8px;
-            border: 1px solid #27272a;
-            transition: all 0.2s ease;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            overflow: hidden;
         }
         
         .challenge-item:hover {
-            border-color: #ffffff;
-            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
         }
         
         .challenge-item a {
@@ -108,11 +140,13 @@
         
         .file-type {
             font-size: 0.75rem;
-            background: #ffffff;
-            color: #0a0a0a;
-            padding: 4px 12px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+            backdrop-filter: blur(10px);
+            color: #ffffff;
+            padding: 6px 16px;
             border-radius: 20px;
-            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
@@ -120,9 +154,12 @@
         footer {
             text-align: center;
             margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid #27272a;
-            color: #71717a;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            color: rgba(255, 255, 255, 0.6);
             font-size: 0.9rem;
         }
         
@@ -132,11 +169,12 @@
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .tabs {
                 flex-direction: column;
+                gap: 0.5rem;
             }
         }
     </style>
