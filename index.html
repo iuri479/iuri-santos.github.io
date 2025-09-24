@@ -184,4 +184,117 @@
                     <li class="challenge-item">
                         <a href="ManipulacaoBancoDados/Desafio - 03.qmd">
                             <span>Desafio 03</span>
-                            <span class="
+                            <span class="file-type">qmd</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 04.qmd">
+                            <span>Desafio 04</span>
+                            <span class="file-type">qmd</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 05.qmd">
+                            <span>Desafio 05</span>
+                            <span class="file-type">qmd</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 06.qmd">
+                            <span>Desafio 06</span>
+                            <span class="file-type">qmd</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 07.qmd">
+                            <span>Desafio 07</span>
+                            <span class="file-type">qmd</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 08.qmd">
+                            <span>Desafio 08</span>
+                            <span class="file-type">qmd</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="html-content">
+                <ul class="challenge-list">
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 01.html">
+                            <span>Desafio 01</span>
+                            <span class="file-type">html</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 02.html">
+                            <span>Desafio 02</span>
+                            <span class="file-type">html</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 03.pdf">
+                            <span>Desafio 03</span>
+                            <span class="file-type">pdf</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 04.html">
+                            <span>Desafio 04</span>
+                            <span class="file-type">html</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 05.html">
+                            <span>Desafio 05</span>
+                            <span class="file-type">html</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 06.html">
+                            <span>Desafio 06</span>
+                            <span class="file-type">html</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 07.html">
+                            <span>Desafio 07</span>
+                            <span class="file-type">html</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 08.html">
+                            <span>Desafio 08</span>
+                            <span class="file-type">html</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Estatística UNICAMP - ME315 Banco de Dados</p>
+        </footer>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(`${tabId}-content`).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
