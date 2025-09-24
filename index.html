@@ -5,14 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desafios ME315 - Iuri Santos</title>
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
-        }
-        
         * {
             margin: 0;
             padding: 0;
@@ -20,37 +12,39 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Georgia', serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f9f9f9;
+            background-color: #f5f2e9;
             padding: 20px;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            overflow: hidden;
+            border: 1px solid #d4c9b1;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         header {
-            background: var(--primary-color);
+            background: #8b0000;
             color: white;
-            padding: 30px;
-            text-align: center;
+            padding: 25px;
+            border-bottom: 5px solid #d4af37;
         }
         
         h1 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             margin-bottom: 5px;
+            text-align: center;
         }
         
         .subtitle {
-            font-size: 1.1rem;
+            font-size: 1rem;
+            text-align: center;
             opacity: 0.9;
+            font-style: italic;
         }
         
         .content {
@@ -59,21 +53,28 @@
         
         .tabs {
             display: flex;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ddd;
+            margin-bottom: 25px;
+            background: #f9f7f0;
+            border: 1px solid #d4c9b1;
         }
         
         .tab {
-            padding: 12px 24px;
+            flex: 1;
+            padding: 15px;
+            text-align: center;
             cursor: pointer;
             font-weight: 600;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s;
+            border-right: 1px solid #d4c9b1;
+            transition: background 0.3s;
+        }
+        
+        .tab:last-child {
+            border-right: none;
         }
         
         .tab.active {
-            border-bottom: 3px solid var(--secondary-color);
-            color: var(--secondary-color);
+            background: #8b0000;
+            color: white;
         }
         
         .tab-content {
@@ -86,48 +87,64 @@
         
         .challenge-list {
             list-style: none;
+            counter-reset: challenge-counter;
         }
         
         .challenge-item {
             padding: 15px;
             margin-bottom: 10px;
-            background: #f8f9fa;
-            border-left: 4px solid var(--secondary-color);
-            border-radius: 4px;
-            transition: transform 0.2s;
+            background: #f9f7f0;
+            border-left: 5px solid #8b0000;
+            position: relative;
+            counter-increment: challenge-counter;
         }
         
-        .challenge-item:hover {
-            transform: translateX(5px);
-            background: #e9ecef;
+        .challenge-item::before {
+            content: counter(challenge-counter);
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #8b0000;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
         }
         
         .challenge-item a {
             text-decoration: none;
-            color: var(--dark-color);
+            color: #333;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
         .challenge-item a:hover {
-            color: var(--secondary-color);
+            color: #8b0000;
         }
         
         .file-type {
             font-size: 0.8rem;
-            background: var(--secondary-color);
+            background: #8b0000;
             color: white;
-            padding: 3px 8px;
-            border-radius: 12px;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
         }
         
         footer {
             text-align: center;
             padding: 20px;
-            background: #f1f1f1;
+            background: #f9f7f0;
             color: #666;
             font-size: 0.9rem;
+            border-top: 1px solid #d4c9b1;
         }
         
         @media (max-width: 768px) {
@@ -136,14 +153,12 @@
             }
             
             .tab {
-                text-align: center;
-                border-bottom: 1px solid #ddd;
-                border-left: 3px solid transparent;
+                border-right: none;
+                border-bottom: 1px solid #d4c9b1;
             }
             
-            .tab.active {
-                border-left: 3px solid var(--secondary-color);
-                border-bottom: 1px solid #ddd;
+            .challenge-item::before {
+                left: -25px;
             }
         }
     </style>
@@ -279,14 +294,11 @@
             
             tabs.forEach(tab => {
                 tab.addEventListener('click', function() {
-                    // Remove active class from all tabs and contents
                     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                     document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
                     
-                    // Add active class to clicked tab
                     this.classList.add('active');
                     
-                    // Show corresponding content
                     const tabId = this.getAttribute('data-tab');
                     document.getElementById(`${tabId}-content`).classList.add('active');
                 });
