@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desafios ME315 - Iuri Santos</title>
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,63 +20,60 @@
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #0a0a0a;
-            color: #e4e4e7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            min-height: 100vh;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
         
         header {
+            background: var(--primary-color);
+            color: white;
+            padding: 30px;
             text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem 0;
-            border-bottom: 1px solid #27272a;
         }
         
         h1 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: #ffffff;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.025em;
+            font-size: 2.2rem;
+            margin-bottom: 5px;
         }
         
         .subtitle {
-            color: #a1a1aa;
             font-size: 1.1rem;
-            font-weight: 400;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 30px;
         }
         
         .tabs {
             display: flex;
-            gap: 0;
-            margin-bottom: 2rem;
-            background: #18181b;
-            border-radius: 8px;
-            padding: 4px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
         }
         
         .tab {
-            flex: 1;
             padding: 12px 24px;
-            text-align: center;
             cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-            font-weight: 500;
-            color: #a1a1aa;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
         }
         
         .tab.active {
-            background: #ffffff;
-            color: #0a0a0a;
+            border-bottom: 3px solid var(--secondary-color);
+            color: var(--secondary-color);
         }
         
         .tab-content {
@@ -81,62 +86,64 @@
         
         .challenge-list {
             list-style: none;
-            display: grid;
-            gap: 1rem;
         }
         
         .challenge-item {
-            background: #18181b;
-            border-radius: 8px;
-            border: 1px solid #27272a;
-            transition: all 0.2s ease;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 4px;
+            transition: transform 0.2s;
         }
         
         .challenge-item:hover {
-            border-color: #ffffff;
-            transform: translateY(-2px);
+            transform: translateX(5px);
+            background: #e9ecef;
         }
         
         .challenge-item a {
             text-decoration: none;
-            color: inherit;
-            padding: 1.5rem;
+            color: var(--dark-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
+        .challenge-item a:hover {
+            color: var(--secondary-color);
+        }
+        
         .file-type {
-            font-size: 0.75rem;
-            background: #ffffff;
-            color: #0a0a0a;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            font-size: 0.8rem;
+            background: var(--secondary-color);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
         }
         
         footer {
             text-align: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid #27272a;
-            color: #71717a;
+            padding: 20px;
+            background: #f1f1f1;
+            color: #666;
             font-size: 0.9rem;
         }
         
         @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
             .tabs {
                 flex-direction: column;
+            }
+            
+            .tab {
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+                border-left: 3px solid transparent;
+            }
+            
+            .tab.active {
+                border-left: 3px solid var(--secondary-color);
+                border-bottom: 1px solid #ddd;
             }
         }
     </style>
@@ -145,123 +152,124 @@
     <div class="container">
         <header>
             <h1>Desafios ME315</h1>
-            <p class="subtitle">Manipulação de Banco de Dados</p>
-            <p class="subtitle">Iuri Santos Oliveira - 194610</p>
+            <p class="subtitle">Manipulação de Banco de Dados - Iuri Santos Oliveira</p>
         </header>
         
-        <div class="tabs">
-            <div class="tab active" data-tab="html">Resultados (.html /.pdf)</div>
-            <div class="tab" data-tab="qmd">Códigos (.qmd)</div>
-        </div>
-        
-        <div class="tab-content active" id="html-content">
-            <ul class="challenge-list">
-                <li class="challenge-item">
-                    <a href="ManipulacaoBancoDados/Desafio - 01.html">
-                        <span>Desafio 01</span>
-                        <span class="file-type">html</span>
-                    </a>
-                </li>
-                <li class="challenge-item">
-                    <a href="ManipulacaoBancoDados/Desafio - 02.pdf">
-                        <span>Desafio 02</span>
-                        <span class="file-type">pdf</span>
-                    </a>
-                </li>
-                <li class="challenge-item">
-                    <a href="ManipulacaoBancoDados/Desafio - 03.pdf">
-                        <span>Desafio 03</span>
-                        <span class="file-type">pdf</span>
-                    </a>
-                </li>
-                <li class="challenge-item">
-                    <a href="ManipulacaoBancoDados/Desafio - 04.html">
-                        <span>Desafio 04</span>
-                        <span class="file-type">html</span>
-                    </a>
-                </li>
-                <li class="challenge-item">
-                    <a href="ManipulacaoBancoDados/Desafio - 05.html">
-                        <span>Desafio 05</span>
-                        <span class="file-type">html</span>
-                    </a>
-                </li>
-                <li class="challenge-item">
-                    <a href="ManipulacaoBancoDados/Desafio - 06.html">
-                        <span>Desafio 06</span>
-                        <span class="file-type">html</span>
-                    </a>
-                </li>
-                <li class="challenge-item">
-                    <a href="ManipulacaoBancoDados/Desafio - 07.html">
-                        <span>Desafio 07</span>
-                        <span class="file-type">html</span>
-                    </a>
-                </li>
-                <li class="challenge-item">
-                    <a href="ManipulacaoBancoDados/Desafio - 08.html">
-                        <span>Desafio 08</span>
-                        <span class="file-type">html</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="tab-content" id="qmd-content">
-            <ul class="challenge-list">
-                <li class="challenge-item">
-                    <a href="ManipulacaoBancoDados/Desafio - 01.qmd">
-                        <span>Desafio 01</span>
-                        <span class="file-type">qmd</span>
-                    </a>
-                </li>
-                <li class="challenge-item">
-                    <a href="ManipulacaoBancoDados/Desafio - 02.qmd">
-                        <span>Desafio 02</span>
-                        <span class="file-type">qmd</span>
-                    </a>
-                </li>
-                <li class="challenge-item">
-                    <a href="ManipulacaoBancoDados/Desafio - 03.qmd">
-                        <span>Desafio 03</span>
-                        <span class="file-type">qmd</span>
-                    </a>
-                </li>
-                <li class="challenge-item">
-                    <a href="ManipulacaoBancoDados/Desafio - 04.qmd">
-                        <span>Desafio 04</span>
-                        <span class="file-type">qmd</span>
-                    </a>
-                </li>
-                <li class="challenge-item">
-                    <a href="ManipulacaoBancoDados/Desafio - 05.qmd">
-                        <span>Desafio 05</span>
-                        <span class="file-type">qmd</span>
-                    </a>
-                </li>
-                <li class="challenge-item">
-                    <a href="ManipulacaoBancoDados/Desafio - 06.qmd">
-                        <span>Desafio 06</span>
-                        <span class="file-type">qmd</span>
-                    </a>
-                </li>
-                <li class="challenge-item">
-                    <a href="ManipulacaoBancoDados/Desafio - 07.qmd">
-                        <span>Desafio 07</span>
-                        <span class="file-type">qmd</span>
-                    </a>
-                </li>
-                <li class="challenge-item">
-                    <a href="ManipulacaoBancoDados/Desafio - 08.qmd">
-                        <span>Desafio 08</span>
-                        <span class="file-type">qmd</span>
-                    </a>
-                </li>
-            </ul>
+        <div class="content">
+            <div class="tabs">
+                <div class="tab active" data-tab="html">Resultados (.html/.pdf)</div>
+                <div class="tab" data-tab="qmd">Códigos (.qmd)</div>
+            </div>
+            
+            <div class="tab-content active" id="html-content">
+                <ul class="challenge-list">
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 01.html">
+                            <span>Desafio 01</span>
+                            <span class="file-type">html</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 02.pdf">
+                            <span>Desafio 02</span>
+                            <span class="file-type">pdf</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 03.pdf">
+                            <span>Desafio 03</span>
+                            <span class="file-type">pdf</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 04.html">
+                            <span>Desafio 04</span>
+                            <span class="file-type">html</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 05.html">
+                            <span>Desafio 05</span>
+                            <span class="file-type">html</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 06.html">
+                            <span>Desafio 06</span>
+                            <span class="file-type">html</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 07.html">
+                            <span>Desafio 07</span>
+                            <span class="file-type">html</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 08.html">
+                            <span>Desafio 08</span>
+                            <span class="file-type">html</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="qmd-content">
+                <ul class="challenge-list">
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 01.qmd">
+                            <span>Desafio 01</span>
+                            <span class="file-type">qmd</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 02.qmd">
+                            <span>Desafio 02</span>
+                            <span class="file-type">qmd</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 03.qmd">
+                            <span>Desafio 03</span>
+                            <span class="file-type">qmd</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 04.qmd">
+                            <span>Desafio 04</span>
+                            <span class="file-type">qmd</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 05.qmd">
+                            <span>Desafio 05</span>
+                            <span class="file-type">qmd</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 06.qmd">
+                            <span>Desafio 06</span>
+                            <span class="file-type">qmd</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 07.qmd">
+                            <span>Desafio 07</span>
+                            <span class="file-type">qmd</span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 08.qmd">
+                            <span>Desafio 08</span>
+                            <span class="file-type">qmd</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
         
         <footer>
-            <p>UNICAMP | IMECC - Instituto de Matemática, Estatística e Computação Científica</p>
+            <p>IMECC - Instituto de Matemática, Estatística e Computação Científica</p>
         </footer>
     </div>
     
@@ -271,11 +279,14 @@
             
             tabs.forEach(tab => {
                 tab.addEventListener('click', function() {
+                    // Remove active class from all tabs and contents
                     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                     document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
                     
+                    // Add active class to clicked tab
                     this.classList.add('active');
                     
+                    // Show corresponding content
                     const tabId = this.getAttribute('data-tab');
                     document.getElementById(`${tabId}-content`).classList.add('active');
                 });
@@ -283,4 +294,4 @@
         });
     </script>
 </body>
-</html>
+    </html>
