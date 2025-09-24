@@ -11,28 +11,30 @@
             box-sizing: border-box;
         }
         
-        body {
+        /* Tema Preto (Padrão) */
+        body.theme-black {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: #0a0a0a;
             color: #e4e4e7;
             line-height: 1.6;
             min-height: 100vh;
+            transition: all 0.3s ease;
         }
         
-        .container {
+        .theme-black .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 2rem;
         }
         
-        header {
+        .theme-black header {
             text-align: center;
             margin-bottom: 3rem;
             padding: 2rem 0;
             border-bottom: 1px solid #27272a;
         }
         
-        h1 {
+        .theme-black h1 {
             font-size: 2.5rem;
             font-weight: 300;
             color: #ffffff;
@@ -40,13 +42,13 @@
             letter-spacing: -0.025em;
         }
         
-        .subtitle {
+        .theme-black .subtitle {
             color: #a1a1aa;
             font-size: 1.1rem;
             font-weight: 400;
         }
         
-        .tabs {
+        .theme-black .tabs {
             display: flex;
             gap: 0;
             margin-bottom: 2rem;
@@ -55,7 +57,7 @@
             padding: 4px;
         }
         
-        .tab {
+        .theme-black .tab {
             flex: 1;
             padding: 12px 24px;
             text-align: center;
@@ -66,38 +68,38 @@
             color: #a1a1aa;
         }
         
-        .tab.active {
+        .theme-black .tab.active {
             background: #ffffff;
             color: #0a0a0a;
         }
         
-        .tab-content {
+        .theme-black .tab-content {
             display: none;
         }
         
-        .tab-content.active {
+        .theme-black .tab-content.active {
             display: block;
         }
         
-        .challenge-list {
+        .theme-black .challenge-list {
             list-style: none;
             display: grid;
             gap: 1rem;
         }
         
-        .challenge-item {
+        .theme-black .challenge-item {
             background: #18181b;
             border-radius: 8px;
             border: 1px solid #27272a;
             transition: all 0.2s ease;
         }
         
-        .challenge-item:hover {
+        .theme-black .challenge-item:hover {
             border-color: #ffffff;
             transform: translateY(-2px);
         }
         
-        .challenge-item a {
+        .theme-black .challenge-item a {
             text-decoration: none;
             color: inherit;
             padding: 1.5rem;
@@ -106,7 +108,7 @@
             align-items: center;
         }
         
-        .file-type {
+        .theme-black .file-type {
             font-size: 0.75rem;
             background: #ffffff;
             color: #0a0a0a;
@@ -117,7 +119,7 @@
             letter-spacing: 0.05em;
         }
         
-        footer {
+        .theme-black footer {
             text-align: center;
             margin-top: 3rem;
             padding-top: 2rem;
@@ -126,6 +128,182 @@
             font-size: 0.9rem;
         }
         
+        /* Tema Roxo */
+        body.theme-purple {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-purple::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120,119,198,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,119,198,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(120,219,226,0.3) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .theme-purple .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .theme-purple header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .theme-purple h1 {
+            font-size: 2.8rem;
+            font-weight: 300;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #a8edea 50%, #fed6e3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .theme-purple .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+        
+        .theme-purple .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 8px;
+        }
+        
+        .theme-purple .tab {
+            flex: 1;
+            padding: 12px 24px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .theme-purple .tab.active {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            color: #ffffff;
+            box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+        }
+        
+        .theme-purple .tab-content {
+            display: none;
+        }
+        
+        .theme-purple .tab-content.active {
+            display: block;
+        }
+        
+        .theme-purple .challenge-list {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .theme-purple .challenge-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .theme-purple .challenge-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .theme-purple .challenge-item a {
+            text-decoration: none;
+            color: inherit;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .theme-purple .file-type {
+            font-size: 0.75rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+            backdrop-filter: blur(10px);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .theme-purple footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Botão de alternância de tema */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 10px 20px;
+            color: white;
+            cursor: pointer;
+            z-index: 1000;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Responsividade */
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
@@ -138,15 +316,24 @@
             .tabs {
                 flex-direction: column;
             }
+            
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 8px 16px;
+                font-size: 12px;
+            }
         }
     </style>
 </head>
-<body>
+<body class="theme-black">
+    <!-- Botão para alternar entre temas -->
+    <button class="theme-toggle" id="themeToggle">Alternar para Tema Roxo</button>
+    
     <div class="container">
         <header>
             <h1>Desafios ME315</h1>
-            <p class="subtitle">Manipulação de Banco de Dados</p>
-            <p class="subtitle">Iuri Santos Oliveira - 194610 | IMECC</p>
+            <p class="subtitle">Manipulação de Banco de Dados - Iuri Santos Oliveira</p>
         </header>
         
         <div class="tabs">
@@ -261,12 +448,13 @@
         </div>
         
         <footer>
-            <p>UNICAMP | IMECC - Instituto de Matemática, Estatística e Computação Científica</p>
+            <p>IMECC - Instituto de Matemática, Estatística e Computação Científica</p>
         </footer>
     </div>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Funcionalidade das abas
             const tabs = document.querySelectorAll('.tab');
             
             tabs.forEach(tab => {
@@ -279,6 +467,22 @@
                     const tabId = this.getAttribute('data-tab');
                     document.getElementById(`${tabId}-content`).classList.add('active');
                 });
+            });
+            
+            // Funcionalidade do alternador de temas
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            
+            themeToggle.addEventListener('click', function() {
+                if (body.classList.contains('theme-black')) {
+                    body.classList.remove('theme-black');
+                    body.classList.add('theme-purple');
+                    themeToggle.textContent = 'Alternar para Tema Preto';
+                } else {
+                    body.classList.remove('theme-purple');
+                    body.classList.add('theme-black');
+                    themeToggle.textContent = 'Alternar para Tema Roxo';
+                }
             });
         });
     </script>
