@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desafios ME315 - Iuri Santos</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         :root {
-            --primary: #3498db;
-            --secondary: #2c3e50;
-            --accent: #e74c3c;
-            --success: #2ecc71;
-            --warning: #f39c12;
-            --info: #9b59b6;
+            --primary: #3f51b5;
+            --primary-dark: #303f9f;
+            --primary-light: #c5cae9;
+            --accent: #ff4081;
+            --text: #212121;
+            --text-secondary: #757575;
+            --divider: #bdbdbd;
+            --background: #fafafa;
         }
         
         * {
@@ -21,10 +24,10 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text);
+            background: var(--background);
             min-height: 100vh;
             padding: 20px;
         }
@@ -33,37 +36,33 @@
             max-width: 1200px;
             margin: 0 auto;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             overflow: hidden;
         }
         
-        header {
-            background: var(--secondary);
+        .app-bar {
+            background: var(--primary);
             color: white;
-            padding: 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
         
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--accent), var(--success));
+        .app-bar i {
+            margin-right: 15px;
+            font-size: 24px;
         }
         
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            font-weight: 500;
         }
         
         .subtitle {
-            font-size: 1.2rem;
+            margin-left: auto;
+            font-size: 0.9rem;
             opacity: 0.9;
         }
         
@@ -71,61 +70,40 @@
             padding: 30px;
         }
         
-        .info-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .info-card {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            border-left: 5px solid var(--primary);
-            transition: transform 0.3s;
-        }
-        
-        .info-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .info-card h3 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-        
-        .info-card p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
         .tabs {
             display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-            background: #f8f9fa;
-            border-radius: 50px;
-            padding: 5px;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--divider);
         }
         
         .tab {
-            padding: 10px 30px;
+            padding: 15px 25px;
             cursor: pointer;
-            font-weight: 600;
-            border-radius: 50px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border-bottom: 2px solid transparent;
             transition: all 0.3s;
+            position: relative;
         }
         
         .tab.active {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .tab .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(63, 81, 181, 0.3);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+        }
+        
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
         }
         
         .tab-content {
@@ -136,336 +114,258 @@
             display: block;
         }
         
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
+        .challenge-list {
+            list-style: none;
         }
         
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--primary);
-            transform: translateX(-50%);
-        }
-        
-        .timeline-item {
-            display: flex;
-            margin-bottom: 30px;
-            position: relative;
-        }
-        
-        .timeline-item:nth-child(odd) {
-            flex-direction: row;
-        }
-        
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-        
-        .timeline-content {
-            flex: 1;
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            position: relative;
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-right: 30px;
-        }
-        
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-left: 30px;
-        }
-        
-        .timeline-content::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            width: 20px;
-            height: 20px;
-            background: var(--primary);
-            border-radius: 50%;
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-content::before {
-            right: -40px;
-        }
-        
-        .timeline-item:nth-child(even) .timeline-content::before {
-            left: -40px;
-        }
-        
-        .timeline-content h3 {
-            color: var(--secondary);
+        .challenge-item {
+            padding: 15px;
             margin-bottom: 10px;
-        }
-        
-        .timeline-links {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .timeline-link {
-            text-decoration: none;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8rem;
+            border-radius: 4px;
             transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid transparent;
         }
         
-        .qmd-link {
-            background: var(--primary);
+        .challenge-item:hover {
+            background: #f5f5f5;
+            border-left: 4px solid var(--primary);
         }
         
-        .html-link {
-            background: var(--accent);
+        .challenge-item a {
+            text-decoration: none;
+            color: var(--text);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
         }
         
-        .pdf-link {
-            background: var(--success);
+        .challenge-item a:hover {
+            color: var(--primary);
         }
         
-        .timeline-link:hover {
-            opacity: 0.9;
-            transform: scale(1.05);
+        .file-chip {
+            font-size: 0.8rem;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 5px 10px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .file-chip i {
+            font-size: 16px;
+            margin-right: 5px;
         }
         
         footer {
             text-align: center;
             padding: 20px;
-            background: #f8f9fa;
-            color: #666;
+            background: #f5f5f5;
+            color: var(--text-secondary);
             font-size: 0.9rem;
         }
         
         @media (max-width: 768px) {
-            .timeline::before {
-                left: 20px;
+            .app-bar {
+                flex-direction: column;
+                align-items: flex-start;
             }
             
-            .timeline-item {
-                flex-direction: row !important;
+            .subtitle {
+                margin-left: 0;
+                margin-top: 10px;
             }
             
-            .timeline-content {
-                margin-left: 50px !important;
-                margin-right: 0 !important;
+            .tabs {
+                flex-direction: column;
             }
             
-            .timeline-content::before {
-                left: -40px !important;
-                right: auto !important;
+            .tab {
+                border-bottom: 1px solid var(--divider);
+                border-left: 2px solid transparent;
+            }
+            
+            .tab.active {
+                border-left: 2px solid var(--primary);
+                border-bottom: 1px solid var(--divider);
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
+        <div class="app-bar">
+            <i class="material-icons">school</i>
             <h1>Desafios ME315</h1>
             <p class="subtitle">Banco de Dados - Iuri Santos</p>
-        </header>
+        </div>
         
         <div class="content">
-            <div class="info-cards">
-                <div class="info-card">
-                    <h3>8</h3>
-                    <p>Desafios</p>
-                </div>
-                <div class="info-card">
-                    <h3>7</h3>
-                    <p>HTML</p>
-                </div>
-                <div class="info-card">
-                    <h3>1</h3>
-                    <p>PDF</p>
-                </div>
-                <div class="info-card">
-                    <h3>8</h3>
-                    <p>QMD</p>
-                </div>
-            </div>
-            
             <div class="tabs">
-                <div class="tab active" data-tab="qmd">Códigos (.qmd)</div>
-                <div class="tab" data-tab="html">Resultados (.html/.pdf)</div>
+                <div class="tab active" data-tab="qmd">
+                    <span>Códigos (.qmd)</span>
+                </div>
+                <div class="tab" data-tab="html">
+                    <span>Resultados (.html/.pdf)</span>
+                </div>
             </div>
             
             <div class="tab-content active" id="qmd-content">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Desafio 01</h3>
-                            <p>Primeiro desafio da disciplina</p>
-                            <div class="timeline-links">
-                                <a href="ManipulacaoBancoDados/Desafio - 01.qmd" class="timeline-link qmd-link">qmd</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Desafio 02</h3>
-                            <p>Segundo desafio da disciplina</p>
-                            <div class="timeline-links">
-                                <a href="ManipulacaoBancoDados/Desafio - 02.qmd" class="timeline-link qmd-link">qmd</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Desafio 03</h3>
-                            <p>Terceiro desafio da disciplina</p>
-                            <div class="timeline-links">
-                                <a href="ManipulacaoBancoDados/Desafio - 03.qmd" class="timeline-link qmd-link">qmd</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Desafio 04</h3>
-                            <p>Quarto desafio da disciplina</p>
-                            <div class="timeline-links">
-                                <a href="ManipulacaoBancoDados/Desafio - 04.qmd" class="timeline-link qmd-link">qmd</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Desafio 05</h3>
-                            <p>Quinto desafio da disciplina</p>
-                            <div class="timeline-links">
-                                <a href="ManipulacaoBancoDados/Desafio - 05.qmd" class="timeline-link qmd-link">qmd</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Desafio 06</h3>
-                            <p>Sexto desafio da disciplina</p>
-                            <div class="timeline-links">
-                                <a href="ManipulacaoBancoDados/Desafio - 06.qmd" class="timeline-link qmd-link">qmd</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Desafio 07</h3>
-                            <p>Sétimo desafio da disciplina</p>
-                            <div class="timeline-links">
-                                <a href="ManipulacaoBancoDados/Desafio - 07.qmd" class="timeline-link qmd-link">qmd</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Desafio 08</h3>
-                            <p>Oitavo desafio da disciplina</p>
-                            <div class="timeline-links">
-                                <a href="ManipulacaoBancoDados/Desafio - 08.qmd" class="timeline-link qmd-link">qmd</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <ul class="challenge-list">
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 01.qmd">
+                            <span>Desafio 01</span>
+                            <span class="file-chip">
+                                <i class="material-icons">code</i>
+                                qmd
+                            </span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 02.qmd">
+                            <span>Desafio 02</span>
+                            <span class="file-chip">
+                                <i class="material-icons">code</i>
+                                qmd
+                            </span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 03.qmd">
+                            <span>Desafio 03</span>
+                            <span class="file-chip">
+                                <i class="material-icons">code</i>
+                                qmd
+                            </span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 04.qmd">
+                            <span>Desafio 04</span>
+                            <span class="file-chip">
+                                <i class="material-icons">code</i>
+                                qmd
+                            </span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 05.qmd">
+                            <span>Desafio 05</span>
+                            <span class="file-chip">
+                                <i class="material-icons">code</i>
+                                qmd
+                            </span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 06.qmd">
+                            <span>Desafio 06</span>
+                            <span class="file-chip">
+                                <i class="material-icons">code</i>
+                                qmd
+                            </span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 07.qmd">
+                            <span>Desafio 07</span>
+                            <span class="file-chip">
+                                <i class="material-icons">code</i>
+                                qmd
+                            </span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 08.qmd">
+                            <span>Desafio 08</span>
+                            <span class="file-chip">
+                                <i class="material-icons">code</i>
+                                qmd
+                            </span>
+                        </a>
+                    </li>
+                </ul>
             </div>
             
             <div class="tab-content" id="html-content">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Desafio 01</h3>
-                            <p>Primeiro desafio da disciplina</p>
-                            <div class="timeline-links">
-                                <a href="ManipulacaoBancoDados/Desafio - 01.html" class="timeline-link html-link">html</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Desafio 02</h3>
-                            <p>Segundo desafio da disciplina</p>
-                            <div class="timeline-links">
-                                <a href="ManipulacaoBancoDados/Desafio - 02.pdf" class="timeline-link pdf-link">pdf</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Desafio 03</h3>
-                            <p>Terceiro desafio da disciplina</p>
-                            <div class="timeline-links">
-                                <a href="ManipulacaoBancoDados/Desafio - 03.pdf" class="timeline-link pdf-link">pdf</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Desafio 04</h3>
-                            <p>Quarto desafio da disciplina</p>
-                            <div class="timeline-links">
-                                <a href="ManipulacaoBancoDados/Desafio - 04.html" class="timeline-link html-link">html</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Desafio 05</h3>
-                            <p>Quinto desafio da disciplina</p>
-                            <div class="timeline-links">
-                                <a href="ManipulacaoBancoDados/Desafio - 05.html" class="timeline-link html-link">html</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Desafio 06</h3>
-                            <p>Sexto desafio da disciplina</p>
-                            <div class="timeline-links">
-                                <a href="ManipulacaoBancoDados/Desafio - 06.html" class="timeline-link html-link">html</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Desafio 07</h3>
-                            <p>Sétimo desafio da disciplina</p>
-                            <div class="timeline-links">
-                                <a href="ManipulacaoBancoDados/Desafio - 07.html" class="timeline-link html-link">html</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Desafio 08</h3>
-                            <p>Oitavo desafio da disciplina</p>
-                            <div class="timeline-links">
-                                <a href="ManipulacaoBancoDados/Desafio - 08.html" class="timeline-link html-link">html</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <ul class="challenge-list">
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 01.html">
+                            <span>Desafio 01</span>
+                            <span class="file-chip">
+                                <i class="material-icons">language</i>
+                                html
+                            </span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 02.pdf">
+                            <span>Desafio 02</span>
+                            <span class="file-chip">
+                                <i class="material-icons">picture_as_pdf</i>
+                                pdf
+                            </span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 03.pdf">
+                            <span>Desafio 03</span>
+                            <span class="file-chip">
+                                <i class="material-icons">picture_as_pdf</i>
+                                pdf
+                            </span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 04.html">
+                            <span>Desafio 04</span>
+                            <span class="file-chip">
+                                <i class="material-icons">language</i>
+                                html
+                            </span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 05.html">
+                            <span>Desafio 05</span>
+                            <span class="file-chip">
+                                <i class="material-icons">language</i>
+                                html
+                            </span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 06.html">
+                            <span>Desafio 06</span>
+                            <span class="file-chip">
+                                <i class="material-icons">language</i>
+                                html
+                            </span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 07.html">
+                            <span>Desafio 07</span>
+                            <span class="file-chip">
+                                <i class="material-icons">language</i>
+                                html
+                            </span>
+                        </a>
+                    </li>
+                    <li class="challenge-item">
+                        <a href="ManipulacaoBancoDados/Desafio - 08.html">
+                            <span>Desafio 08</span>
+                            <span class="file-chip">
+                                <i class="material-icons">language</i>
+                                html
+                            </span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
         
@@ -478,15 +378,37 @@
         document.addEventListener('DOMContentLoaded', function() {
             const tabs = document.querySelectorAll('.tab');
             
+            // Ripple effect
             tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
+                tab.addEventListener('click', function(e) {
+                    // Remove active class from all tabs and contents
                     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                     document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
                     
+                    // Add active class to clicked tab
                     this.classList.add('active');
                     
+                    // Show corresponding content
                     const tabId = this.getAttribute('data-tab');
                     document.getElementById(`${tabId}-content`).classList.add('active');
+                    
+                    // Ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('ripple');
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
                 });
             });
         });
